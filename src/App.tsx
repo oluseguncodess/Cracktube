@@ -1,10 +1,10 @@
-function App() {
- 
+import Header from "./layouts/Header"
 
+function App() {
   return (
-    <>
-    <h1>CrackTube</h1>
-    </>
+    <div className="max-h-screen flex flex-col">
+      <Header/>
+    </div>
   )
 }
 
