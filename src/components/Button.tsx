@@ -2,7 +2,8 @@ import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps } from "react";
 import { twMerge } from "tailwind-merge";
 
-const buttonStyles = cva(["transition-colors"],{
+// eslint-disable-next-line react-refresh/only-export-components
+export const buttonStyles = cva(["transition-colors"],{
     variants: {
         varient: {
             default: ["bg-secondary", "hover:bg-secondary-hover"],
@@ -22,9 +23,8 @@ const buttonStyles = cva(["transition-colors"],{
 
 type ButtonProps = VariantProps<typeof buttonStyles> & ComponentProps<"button">
 
-function Button({varient, sizes, className, ...props}: ButtonProps) {
+export function Button({varient, sizes, className, ...props}: ButtonProps) {
     return <button {...props} 
     className={twMerge(buttonStyles({varient, sizes}), className)}></button>;
 }
 
-export default Button;

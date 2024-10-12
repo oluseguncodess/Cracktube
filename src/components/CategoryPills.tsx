@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Button from "./Button";
+import { Button } from './Button'
 import { useEffect, useRef, useState } from "react";
 
 type CategoryPillProps = {
@@ -10,7 +10,7 @@ type CategoryPillProps = {
 
 const TRANSLATE_AMOUNT = 200
 
-function CategoryPills({categories, selectedCategory, onSelect}: CategoryPillProps) {
+export function CategoryPills({categories, selectedCategory, onSelect}: CategoryPillProps) {
     const [translate, setTranslate] = useState(0)
     const [isLeftVisible, setIsLeftVisible] = useState(false)
     const [isRightVisible, setIsRightVisible] = useState(false)
@@ -88,4 +88,3 @@ function CategoryPills({categories, selectedCategory, onSelect}: CategoryPillPro
     )
 }
 
-export default CategoryPills;

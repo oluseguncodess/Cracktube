@@ -1,9 +1,10 @@
 import { ArrowLeft, Bell, Menu, Mic, Search, Upload, User } from 'lucide-react';
 import logo from '../assets/CrackTube_logo.jpeg'
-import Button from '../components/Button';
+import { Button } from '../components/Button';
 import { useState } from 'react';
+import { useSidebarContext } from "../contexts/SidebarContext";
 
-function Header() {
+export function Header() {
     const [showFullWidthSearch, setShowFullWidthSearch] = useState(false);
 
     return (
@@ -61,4 +62,27 @@ function Header() {
     );
 }
 
-export default Header;
+type PageHeaderFirstSectionProps = {
+    hidden?: boolean
+  }
+  
+  export function PageHeaderFirstSection({
+    hidden = false,
+  }: PageHeaderFirstSectionProps) {
+    const { toggle } = useSidebarContext()
+  
+    return (
+      <div
+        className={`gap-4 items-center flex-shrink-0 ${
+          hidden ? "hidden" : "flex"
+        }`}
+      >
+        <Button onClick={toggle} varient="ghost" sizes="icon">
+          <Menu />
+        </Button>
+        <a href="/">
+          <img src={logo} className="h-6" />
+        </a>
+      </div>
+    )
+  }
